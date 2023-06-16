@@ -170,8 +170,8 @@
     "webpack-merge": "^5.9.0"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
+    "productName": "Skoolas CBT",
+    "appId": "org.erb.skoolascbt",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -181,6 +181,7 @@
     ],
     "afterSign": ".erb/scripts/notarize.js",
     "mac": {
+      "icon": "assets/icon.icns",
       "target": {
         "target": "default",
         "arch": [

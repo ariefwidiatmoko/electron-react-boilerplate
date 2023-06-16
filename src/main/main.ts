@@ -39,9 +39,9 @@ if (process.env.NODE_ENV === 'production') {
 const isDebug =
   process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 
-if (isDebug) {
-  require('electron-debug')();
-}
+// if (isDebug) {
+//   require('electron-debug')();
+// }
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
@@ -73,6 +73,10 @@ const createWindow = async () => {
     show: false,
     width: 1024,
     height: 728,
+    fullscreen: true,
+    frame: false,
+    skipTaskbar: true,
+    thickFrame: false,
     icon: getAssetPath('icon.png'),
     webPreferences: {
       preload: app.isPackaged
@@ -81,7 +85,7 @@ const createWindow = async () => {
     },
   });
 
-  mainWindow.loadURL(resolveHtmlPath('index.html'));
+  mainWindow.loadURL('http://localhost:3000/');
 
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
